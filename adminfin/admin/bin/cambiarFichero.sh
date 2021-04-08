@@ -1,0 +1,1 @@
+chown www-data:ftp -R $1/*

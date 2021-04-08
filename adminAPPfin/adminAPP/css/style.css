@@ -1,0 +1,17 @@
+
+.show
+{display:inline;}
+.error
+{ border: 1px solid #FF0000;}
+.error:hover
+{}
+.mensajeer
+{
+	 border: 1px solid #FF0000;
+	text-align:center;
+    border-radius:0 0 10px 10px;
+    -moz-border-radius:0 0 10px 10px;
+    -webkit-border-radius:0 0 10px 10px;
+	background-color:#99FFFF;
+	color:#FF0000;
+}

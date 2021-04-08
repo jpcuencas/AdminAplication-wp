@@ -1,0 +1,5 @@
+copiar en /usr/local/bin
+
+hacer carpeta 
+/usr/ftp/bin
+shell fantasma del grupo ftp

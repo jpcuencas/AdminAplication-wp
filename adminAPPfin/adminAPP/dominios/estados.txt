@@ -1,0 +1,4 @@
+'I' => 'Instalado',
+'C' => 'Configurado',
+'P' => 'Pendiente',
+'B' => 'Bloqueado'

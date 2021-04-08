@@ -1,0 +1,15 @@
+Debian
+_____________________
+ip:23.89.199.222
+usuario:root
+pass:asus/*/12
+
+MySQL
+______________________
+usuario:root
+pass:123654
+
+ftp
+_______________________
+usuario:usuarioftpd
+pass:789654

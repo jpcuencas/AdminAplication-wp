@@ -1,0 +1,25 @@
+# BEGIN WPCache
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{QUERY_STRING} !.*=.*
+RewriteCond %{HTTP:Cookie} !^.*(comment_author_|wordpress_logged_in|wp-postpass_).*$
+RewriteCond %{HTTP:X-Wap-Profile} !^[a-z0-9\"]+ [NC]
+RewriteCond %{HTTP:Profile} !^[a-z0-9\"]+ [NC]
+RewriteCond %{DOCUMENT_ROOT}/C:\xampp\htdocs\wordpress_es/wp-content/cache/all/C:\xampp\htdocs\wordpress_es/$1/index.html -f
+RewriteRule ^(.*) "/C:\xampp\htdocs\wordpress_es/wp-content/cache/all/C:\xampp\htdocs\wordpress_es/$1/index.html" [L]
+</IfModule>
+# END WPCache
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wordpress_es/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress_es/index.php [L]
+</IfModule>
+
+# END WordPress

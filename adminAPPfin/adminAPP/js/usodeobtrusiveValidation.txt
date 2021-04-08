@@ -1,0 +1,19 @@
+con libreria
+---------
+<input type="text" name="email" data-val="true" 
+data-val-required="This field is required.">  
+
+<div class="validation-summary-valid" data-valmsg-summary="true">
+    <ul><li style="display:none"></li></ul>
+</div>
+-----
+
+sin libreria
+------------
+<input type="text" name="email" class="required">
+<script>
+        $(function () {
+            $("form").validate();
+        });
+</script>
+------------

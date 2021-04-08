@@ -1,0 +1,6 @@
+'ES_ES' => 'Español',
+'FR_FR' => 'Frances',
+'DE_DE' => 'Aleman',
+'PT_PT' => 'Portugues',
+'IT_IT' => 'Italiano',
+'EN_EN' => 'Ingles'

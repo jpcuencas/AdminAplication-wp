@@ -1,0 +1,1 @@
+/usr/sbin/a2ensite $1

@@ -1,0 +1,117 @@
+////////////////////////
+////////////HOTMAIL/////
+////////////////////////
+<?php
+//error_reporting(E_ALL);
+error_reporting(E_STRICT);
+
+date_default_timezone_set('America/Toronto');
+
+require_once('../class.phpmailer.php');
+//include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
+
+$mail             = new PHPMailer();
+
+$body             = file_get_contents('contents.html');
+$body             = eregi_replace("[\]",'',$body);
+
+$mail->IsSMTP(); // telling the class to use SMTP
+$mail->SMTPDebug  = 2;                      // enables SMTP debug information (for testing)
+                                            // 1 = errors and messages
+                                            // 2 = messages only
+$mail->SMTPAuth   = true;                   // enable SMTP authentication
+$mail->SMTPSecure = "tls";                  // sets the prefix to the servier
+$mail->Host       = "smtp.live.com";        // sets hotmil as the SMTP server
+$mail->Port       = 587;                    // set the SMTP port for the hotmail server
+$mail->Username   = "useyourownemail@hotmail.com";      // hotmail username
+$mail->Password   = "useyourownpassword";           // hotmail password
+$mail->SetFrom('yourname@yourdomain.com', 'First Last');
+$mail->AddReplyTo("name@yourdomain.com","First Last");
+$mail->Subject    = "PHPMailer Test Subject via smtp (hotmail), basic";
+$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+$mail->MsgHTML($body);
+
+$address = "anemail@domain.com";
+$mail->AddAddress($address, "John Doe");
+
+$mail->AddAttachment("images/phpmailer.gif");      // attachment
+$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
+
+if(!$mail->Send()) {
+  echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+  echo "Message sent!";
+}
+?>
+////////////////
+///GMAIL////////
+////////////////
+<?php
+// Servidor GMAIL  smtp.gmail.com		port: 465
+// Servidor HOTMAIL  smtp.live.com		port: 587
+// Servidor YAHOO  smtp.mail.yahoo.com port: 25
+
+require("class.phpmailer.php"); // be sure to change this to your location!
+
+$mail = new PHPMailer();    
+$mail->IsSMTP();
+$mail->SMTPAuth = true; // enable SMTP authentication
+$mail->SMTPSecure = "ssl"; // sets the prefix to the servier    
+
+$mail->Host = "smtp.gmail.com"; // sets gmail as the SMTP server    
+$mail->Port = 465; // set the SMTP port    
+$mail->Username = "sumthing@gmail.com"; // yahoo username    
+$mail->Password = "password"; // yahoo password
+
+$mail->From = "sumthing@gmail.com";
+$mail->FromName = "myname";    
+$mail->AddAddress("you@example.com");    
+$mail->Subject = "Test PHPMailer Message";    
+$mail->Body = "Hi! \n\n This was sent with phpMailer_example3.php.";
+
+if(!$mail->Send()) {
+
+    echo 'Message was not sent.';    
+    echo 'Mailer error: ' . $mail->ErrorInfo;
+
+} else {
+
+    echo 'Message has been sent.';
+
+}
+
+?>
+////////////////
+///YAHOO////////
+////////////////
+<?php
+require("class.phpmailer.php"); // be sure to change this to your location!
+
+$mail = new PHPMailer();    
+$mail->IsSMTP();
+$mail->SMTPAuth = true; // enable SMTP authentication
+$mail->SMTPSecure = "ssl"; // sets the prefix to the servier    
+
+$mail->Host = "smtp.mail.yahoo.com"; // sets yahoo as the SMTP server    
+$mail->Port = 25; // set the SMTP port    
+$mail->Username = "sumthing@yahoo.com"; // yahoo username    
+$mail->Password = "password"; // yahoo password
+
+$mail->From = "sumthing@yahoo.com";
+$mail->FromName = "myname";    
+$mail->AddAddress("you@example.com");    
+$mail->Subject = "Test PHPMailer Message";    
+$mail->Body = "Hi! \n\n This was sent with phpMailer_example3.php.";
+
+if(!$mail->Send()) {
+
+    echo 'Message was not sent.';    
+    echo 'Mailer error: ' . $mail->ErrorInfo;
+
+} else {
+
+    echo 'Message has been sent.';
+
+}
+?>
+///////////////
